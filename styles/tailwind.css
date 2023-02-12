@@ -518,6 +518,10 @@ a {
   color: rgb(43 108 176 / var(--tw-text-opacity));
 }
 
+.relative {
+  position: relative;
+}
+
 .my-4 {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -528,16 +532,24 @@ a {
   margin-right: auto;
 }
 
-.mt-2 {
-  margin-top: 0.5rem;
+.mt-1 {
+  margin-top: 0.25rem;
 }
 
 .mb-4 {
   margin-bottom: 1rem;
 }
 
+.mt-4 {
+  margin-top: 1rem;
+}
+
 .mt-10 {
   margin-top: 2.5rem;
+}
+
+.mt-14 {
+  margin-top: 3.5rem;
 }
 
 .mt-auto {
@@ -546,10 +558,6 @@ a {
 
 .mr-6 {
   margin-right: 1.5rem;
-}
-
-.mt-12 {
-  margin-top: 3rem;
 }
 
 .flex {
@@ -599,10 +607,6 @@ a {
 
 .justify-center {
   justify-content: center;
-}
-
-.gap-2 {
-  gap: 0.5rem;
 }
 
 .rounded-md {
@@ -704,10 +708,6 @@ a {
   padding-bottom: 1.25rem;
 }
 
-.pt-2 {
-  padding-top: 0.5rem;
-}
-
 .pt-16 {
   padding-top: 4rem;
 }
@@ -720,8 +720,8 @@ a {
   text-align: center;
 }
 
-.text-sm {
-  font-size: 0.875rem;
+.text-xs {
+  font-size: 0.75rem;
 }
 
 .text-2xl {
@@ -736,8 +736,16 @@ a {
   font-size: 1.25rem;
 }
 
+.text-sm {
+  font-size: 0.875rem;
+}
+
 .text-3xl {
   font-size: 1.875rem;
+}
+
+.text-base {
+  font-size: 1rem;
 }
 
 .font-medium {
@@ -761,11 +769,6 @@ a {
   color: rgb(45 55 72 / var(--tw-text-opacity));
 }
 
-.text-red-600 {
-  --tw-text-opacity: 1;
-  color: rgb(220 38 38 / var(--tw-text-opacity));
-}
-
 .text-red-500 {
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity));
@@ -779,10 +782,6 @@ a {
 .text-gray-900 {
   --tw-text-opacity: 1;
   color: rgb(26 32 44 / var(--tw-text-opacity));
-}
-
-.underline {
-  text-decoration-line: underline;
 }
 
 .antialiased {
@@ -830,24 +829,9 @@ a {
   border-color: rgb(45 55 72 / var(--tw-border-opacity));
 }
 
-@media (prefers-color-scheme: dark) {
-  .dark\:text-red-500 {
-    --tw-text-opacity: 1;
-    color: rgb(239 68 68 / var(--tw-text-opacity));
-  }
-}
-
 @media (min-width: 640px) {
-  .sm\:mt-3 {
-    margin-top: 0.75rem;
-  }
-
-  .sm\:mt-4 {
-    margin-top: 1rem;
-  }
-
-  .sm\:mt-5 {
-    margin-top: 1.25rem;
+  .sm\:mt-10 {
+    margin-top: 2.5rem;
   }
 
   .sm\:text-base {
