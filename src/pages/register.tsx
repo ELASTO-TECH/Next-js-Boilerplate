@@ -8,13 +8,14 @@ import * as Yup from 'yup';
 import Button from '@/components/Button';
 import TextBox from '@/components/TextBox';
 import { Meta } from '@/layouts/Meta';
+import en from '@/locales/en';
 import { Auth } from '@/templates/Auth';
 
 import logo from '../../public/assets/images/logo.png';
 
-const Login = () => {
+const Register = () => {
   const [error, setError] = useState('');
-
+  const t = en;
   const handleOnChange = () => {
     setError('');
   };
@@ -45,22 +46,18 @@ const Login = () => {
     },
 
     validationSchema: Yup.object({
-      email: Yup.string()
-        .email('Invalid email address')
-        .required('Please enter your email'),
-      password: Yup.string()
-        .required('Please enter your password')
-        .min(8, 'Password is too short'),
+      email: Yup.string().email(t.emailValidation).required(t.required),
+      password: Yup.string().required(t.required).min(8, t.minCountMessage),
       passwordConfirmation: Yup.string()
-        .required('Please confirm your password')
-        .oneOf([Yup.ref('password'), null], 'Passwords must match'),
-      firstName: Yup.string().required('Please enter your first name'),
-      lastName: Yup.string().required('Please enter your last name'),
+        .required(t.required)
+        .oneOf([Yup.ref('password'), null], t.passwordMatchError),
+      firstName: Yup.string().required(t.required),
+      lastName: Yup.string().required(t.required),
     }),
   };
 
   return (
-    <Auth meta={<Meta title="Login" description="null" />}>
+    <Auth meta={<Meta title={t.registerPage} description="null" />}>
       <div className="flex flex-col items-center">
         <div className="mb-4 flex">
           <Image alt="logo" src={logo} width="140" height="34" />
@@ -72,7 +69,7 @@ const Login = () => {
                 name="email"
                 id="email"
                 type="email"
-                placeholder="Email"
+                placeholder={t.emailPlaceholder}
                 autoComplete="email"
               />
               <TextBox
@@ -80,7 +77,7 @@ const Login = () => {
                 name="password"
                 id="password"
                 type="password"
-                placeholder="Password"
+                placeholder={t.passwordPlaceholder}
                 autoComplete="new-password"
               />
               <TextBox
@@ -88,7 +85,7 @@ const Login = () => {
                 name="passwordConfirmation"
                 id="passwordConfirmation"
                 type="password"
-                placeholder="Confirm Password"
+                placeholder={t.confirmPasswordPlaceholder}
                 autoComplete="new-password"
               />
               <TextBox
@@ -96,23 +93,24 @@ const Login = () => {
                 name="firstName"
                 id="firstName"
                 type="text"
-                placeholder="First Name"
+                placeholder={t.firstnamePlaceholder}
               />
               <TextBox
                 className="mt-4"
                 name="lastName"
                 id="lastName"
                 type="text"
-                placeholder="Last Name"
+                placeholder={t.lastnamePlaceholder}
               />
 
-              <span className="text-xs text-red-500">{error}</span>
-
+              <span className="whitespace-nowrap text-xs text-red-500">
+                {error}
+              </span>
               <Button
                 className="mx-auto mt-10 "
-                name="signup"
-                id="signup"
-                text="Sign up"
+                name="register"
+                id="register"
+                text={t.registerBtn}
               ></Button>
             </div>
           </Form>
@@ -123,11 +121,11 @@ const Login = () => {
             className="w-fit cursor-pointer text-base text-gray-800 hover:underline"
             href="/login"
           >
-            Already have an account?{' '}
+            {t.existingAccount}
           </Link>
         </div>
       </div>
     </Auth>
   );
 };
-export default Login;
+export default Register;
