@@ -7,6 +7,7 @@ type ITextBoxProps = {
   disabled?: boolean;
   type: string;
   placeholder: string;
+  autoComplete?: string;
   className?: string;
 };
 

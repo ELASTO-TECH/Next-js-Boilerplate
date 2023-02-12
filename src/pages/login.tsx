@@ -52,14 +52,13 @@ const Login = () => {
                 placeholder="Email"
                 type="email"
               ></TextBox>
-              <div className="mt-4">
-                <TextBox
-                  id="pass"
-                  name="pass"
-                  placeholder="Password"
-                  type="password"
-                ></TextBox>
-              </div>
+              <TextBox
+                className="mt-4"
+                id="pass"
+                name="pass"
+                placeholder="Password"
+                type="password"
+              ></TextBox>
 
               <span className="text-xs text-red-500">{error}</span>
 
