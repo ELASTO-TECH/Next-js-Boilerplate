@@ -2,6 +2,7 @@
 import { Form, Formik } from 'formik';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import * as Yup from 'yup';
 
@@ -15,7 +16,7 @@ import logo from '../../public/assets/images/logo.png';
 
 const Login = () => {
   const [error, setError] = useState('');
-
+  const router = useRouter();
   const t = en;
 
   const handleOnChange = () => {
@@ -34,6 +35,7 @@ const Login = () => {
     ) => {
       resetForm(' ');
       console.log(values);
+      router.push('/');
     },
     validationSchema: Yup.object({
       email: Yup.string()
@@ -61,8 +63,8 @@ const Login = () => {
               ></TextBox>
               <TextBox
                 className="mt-4"
-                id="pass"
-                name="pass"
+                id="password"
+                name="password"
                 placeholder={t.passwordPlaceholder}
                 type="password"
               ></TextBox>
