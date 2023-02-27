@@ -1,12 +1,33 @@
 import { useRouter } from 'next/router';
+import { signOut, useSession } from 'next-auth/react';
+import { useEffect, useState } from 'react';
 
+import Button from '@/components/Button';
+import PageLoad from '@/components/preloaders/PageLoad';
 import { Meta } from '@/layouts/Meta';
+import en from '@/locales/en';
 import { Main } from '@/templates/Main';
 
 const Index = () => {
   const router = useRouter();
+  const t = en;
+  const [loaded, setLoaded] = useState(false);
+  const { data: session } = useSession({
+    required: true,
+    onUnauthenticated() {
+      router.push('/login');
+    },
+  });
 
-  return (
+  useEffect(() => {
+    if (session) {
+      setLoaded(true);
+    }
+  }, [session]);
+
+  return !loaded ? (
+    <PageLoad message=" " />
+  ) : (
     <Main
       meta={
         <Meta
@@ -15,6 +36,13 @@ const Index = () => {
         />
       }
     >
+      <Button
+        className="mx-auto my-10"
+        name="login"
+        id="login"
+        onClick={() => signOut()}
+        text={t.logoutBtn}
+      ></Button>
       <a href="https://github.com/ixartz/Next-js-Boilerplate">
         <img
           src={`${router.basePath}/assets/images/nextjs-starter-banner.png`}

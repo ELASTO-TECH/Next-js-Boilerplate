@@ -518,8 +518,20 @@ a {
   color: rgb(43 108 176 / var(--tw-text-opacity));
 }
 
+.visible {
+  visibility: visible;
+}
+
+.fixed {
+  position: fixed;
+}
+
 .relative {
   position: relative;
+}
+
+.z-40 {
+  z-index: 40;
 }
 
 .my-4 {
@@ -532,16 +544,17 @@ a {
   margin-right: auto;
 }
 
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
 .mt-1 {
   margin-top: 0.25rem;
 }
 
 .mb-4 {
   margin-bottom: 1rem;
-}
-
-.mt-4 {
-  margin-top: 1rem;
 }
 
 .mt-10 {
@@ -552,6 +565,10 @@ a {
   margin-top: 3.5rem;
 }
 
+.mt-4 {
+  margin-top: 1rem;
+}
+
 .mt-auto {
   margin-top: auto;
 }
@@ -560,8 +577,8 @@ a {
   margin-right: 1.5rem;
 }
 
-.mb-1 {
-  margin-bottom: 0.25rem;
+.mb-2 {
+  margin-bottom: 0.5rem;
 }
 
 .flex {
@@ -576,6 +593,10 @@ a {
   height: 100vh;
 }
 
+.h-full {
+  height: 100%;
+}
+
 .w-fit {
   width: -moz-fit-content;
   width: fit-content;
@@ -587,10 +608,6 @@ a {
 
 .w-64 {
   width: 16rem;
-}
-
-.w-72 {
-  width: 18rem;
 }
 
 .max-w-screen-md {
@@ -670,6 +687,10 @@ a {
   background-color: rgb(247 250 252 / var(--tw-bg-opacity));
 }
 
+.bg-cover {
+  background-size: cover;
+}
+
 .py-0\.5 {
   padding-top: 0.125rem;
   padding-bottom: 0.125rem;
@@ -732,8 +753,16 @@ a {
   text-align: center;
 }
 
+.text-base {
+  font-size: 1rem;
+}
+
 .text-xs {
   font-size: 0.75rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
 }
 
 .text-2xl {
@@ -748,16 +777,8 @@ a {
   font-size: 1.25rem;
 }
 
-.text-sm {
-  font-size: 0.875rem;
-}
-
 .text-3xl {
   font-size: 1.875rem;
-}
-
-.text-base {
-  font-size: 1rem;
 }
 
 .font-medium {
@@ -770,6 +791,10 @@ a {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.font-light {
+  font-weight: 300;
 }
 
 .capitalize {
@@ -786,6 +811,11 @@ a {
   color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
+.text-green-500 {
+  --tw-text-opacity: 1;
+  color: rgb(34 197 94 / var(--tw-text-opacity));
+}
+
 .text-gray-700 {
   --tw-text-opacity: 1;
   color: rgb(74 85 104 / var(--tw-text-opacity));
@@ -796,9 +826,9 @@ a {
   color: rgb(26 32 44 / var(--tw-text-opacity));
 }
 
-.text-green-500 {
+.text-highlight-900 {
   --tw-text-opacity: 1;
-  color: rgb(34 197 94 / var(--tw-text-opacity));
+  color: rgb(42 67 101 / var(--tw-text-opacity));
 }
 
 .antialiased {
@@ -849,9 +879,5 @@ a {
 @media (min-width: 640px) {
   .sm\:mt-10 {
     margin-top: 2.5rem;
-  }
-
-  .sm\:text-base {
-    font-size: 1rem;
   }
 }

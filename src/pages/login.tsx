@@ -3,6 +3,7 @@ import { Form, Formik } from 'formik';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { signIn } from 'next-auth/react';
 import { useState } from 'react';
 import * as Yup from 'yup';
 
@@ -33,9 +34,19 @@ const Login = () => {
       values: { email: string; password: string },
       { resetForm }: any
     ) => {
-      resetForm(' ');
-      console.log(values);
-      router.push('/');
+      const res = await signIn('credentials', {
+        email: values.email,
+        password: values.password,
+        redirect: false,
+        callbackUrl: `${window.location.origin}`,
+      });
+
+      if (res?.error) {
+        setError(res?.error);
+      } else {
+        router.push('/');
+      }
+      resetForm('');
     },
     validationSchema: Yup.object({
       email: Yup.string()
